@@ -44,7 +44,7 @@ export default function Component() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-800 to-green-600 text-white overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-green-800 to-green-600 text-white overflow-hidden">
       <div className="pattern-animation">
         <div className="holder">
           {[...Array(4)].map((_, i) => (
@@ -114,7 +114,7 @@ export default function Component() {
         )}
       </AnimatePresence>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 flex-grow">
         <div className="max-w-4xl mx-auto bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg shadow-xl p-6">
           <AnimatePresence mode="wait">
             {activeTab === 'home' && (
@@ -150,7 +150,7 @@ export default function Component() {
               </motion.div>
             )}
 
-            {activeTab === 'events' && (
+{activeTab === 'events' && (
               <motion.div
                 key="events"
                 initial={{ opacity: 0, y: 20 }}
@@ -288,7 +288,7 @@ export default function Component() {
         </div>
       </main>
 
-      <footer className="bg-green-900 text-white py-4 mt-8">
+      <footer className="bg-green-900 text-white py-4">
         <div className="container mx-auto px-4 text-center">
           <p>&copy; 2024 Chemical Engineering Society, IIT Roorkee. All rights reserved.</p>
           <div className="mt-2">
@@ -331,28 +331,19 @@ export default function Component() {
         .arm:nth-child(1) { transform: rotate(0deg); }
         .arm:nth-child(2) { transform: rotate(90deg); }
         .arm:nth-child(3) { transform: rotate(180deg); }
-                .arm:nth-child(4) { transform: rotate(270deg); }
+        .arm:nth-child(4) { transform: rotate(270deg); }
 
         .a {
           width: 10px;
           height: 10px;
-          background-color: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.1);
           margin: 10px;
-          border-radius: 50%;
-          animation: scaleUp 3s infinite ease-in-out;
         }
 
-        @keyframes scaleUp {
+        @keyframes animate {
           0% { transform: scale(1); }
-          50% { transform: scale(1.2); }
+          50% { transform: scale(1.5); }
           100% { transform: scale(1); }
-        }
-
-        .a:nth-child(even) { animation-delay: 1s; }
-        .a:nth-child(odd) { animation-delay: 2s; }
-
-        .slick-prev:before, .slick-next:before {
-          color: white;
         }
       `}</style>
     </div>

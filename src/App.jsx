@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Beaker, Calendar, Microscope, Users, FileText, Mail, Menu } from 'lucide-react';
+import { FaTwitter,FaFacebook, FaInstagram } from 'react-icons/fa';    // Twitter icon
+import { AiOutlineMail } from 'react-icons/ai'; // Gmail icon
+
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -20,14 +23,14 @@ export default function Component() {
 
   const events = [
     {
-      title: "Event 1",
-      description: "Exciting event details here!",
+      title: "Freshers Party",
+      description: "Freshers' welcome party!",
       image: "event1.svg",
-      date: "12th October 2024",
+      date: "29 September 2024",
     },
     {
-      title: "Event 2",
-      description: "Another great event!",
+      title: "Guest Lecture",
+      description: "Renowned speaker on sustainable energy",
       image: "event2.svg",
       date: "15th November 2024",
     },
@@ -44,7 +47,7 @@ export default function Component() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-green-800 to-green-600 text-white overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-customColor6 text-white overflow-hidden">
       <div className="pattern-animation">
         <div className="holder">
           {[...Array(4)].map((_, i) => (
@@ -57,10 +60,11 @@ export default function Component() {
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 bg-opacity-70 bg-green-900 backdrop-filter backdrop-blur-lg">
+      <header className="sticky top-0 z-50 bg-opacity-70 bg-#09061F backdrop-filter backdrop-blur-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold">ChESS IIT Roorkee</h1>
+            <img src='../public/image.png' className="h-24 w-24 object-cover rounded-full"></img>
+            <h1 className="mx-auto text-2xl font-bold">ChESS IIT Roorkee</h1>
             <nav className="hidden md:flex space-x-4">
               {tabs.map((tab) => (
                 <button
@@ -68,8 +72,8 @@ export default function Component() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-full font-semibold transition-all ${
                     activeTab === tab.id
-                      ? 'bg-green-500 text-white shadow-lg'
-                      : 'hover:bg-green-700'
+                      ? 'bg-customColor4 text-white shadow-lg'
+                      : 'hover:bg-customColor2'
                   }`}
                 >
                   <tab.icon size={16} />
@@ -114,7 +118,7 @@ export default function Component() {
         )}
       </AnimatePresence>
 
-      <main className="container mx-auto px-4 py-8 flex-grow">
+      <main className="container mx-auto px-10 py-24 flex-grow">
         <div className="max-w-4xl mx-auto bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg shadow-xl p-6">
           <AnimatePresence mode="wait">
             {activeTab === 'home' && (
@@ -130,7 +134,7 @@ export default function Component() {
                   We are a vibrant community of chemical engineering students at IIT Roorkee dedicated to fostering academic and professional growth.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">Latest News</h3>
                     <ul className="space-y-2">
                       <li>Register now!</li>
@@ -138,7 +142,7 @@ export default function Component() {
                       <li>Industry Connect Webinar series announced</li>
                     </ul>
                   </div>
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">Upcoming Events</h3>
                     <ul className="space-y-2">
                       <li>Competition</li>
@@ -162,7 +166,7 @@ export default function Component() {
                 <Slider {...sliderSettings}>
                   {events.map((event, index) => (
                     <div key={index} className="px-2">
-                      <div className="bg-green-700 rounded-lg overflow-hidden">
+                      <div className="bg-customColor1 rounded-lg overflow-hidden">
                         <img src={event.image} alt={event.title} className="w-full h-48 object-cover" />
                         <div className="p-4">
                           <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
@@ -186,19 +190,19 @@ export default function Component() {
               >
                 <h2 className="text-3xl font-bold mb-6">Career Resources</h2>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">Internship Opportunities</h3>
                     <p>Explore summer internships and co-op positions with leading chemical engineering companies.</p>
                   </div>
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">Resume Workshop</h3>
                     <p>Join our monthly resume review sessions to perfect your job application materials.</p>
                   </div>
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">Industry Mentorship Program</h3>
                     <p>Connect with experienced professionals for career guidance and networking opportunities.</p>
                   </div>
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">Job Board</h3>
                     <p>Access exclusive job postings for chemical engineering graduates and students.</p>
                   </div>
@@ -217,13 +221,13 @@ export default function Component() {
                 <h2 className="text-3xl font-bold mb-6">Our Team</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                   {[
-                    { name: "", role: "President", image: ".svg" },
+                    { name: "Palas Kumar Farsoiya", role: "Faculty Advisor", image: ".svg" },
                     { name: "", role: "President", image: ".svg" },
                     { name: "", role: "President", image: ".svg" },
                     { name: "", role: "President", image: ".svg" },
                     { name: "", role: "President", image: ".svg" }
                     ].map((member, index) => (
-                    <div key={index} className="bg-green-700 rounded-lg overflow-hidden">
+                    <div key={index} className="bg-customColor1 rounded-lg overflow-hidden">
                       <img src={member.image} alt={member.name} className="w-full h-32 object-cover" />
                       <div className="p-2 text-center">
                         <h3 className="font-semibold">{member.name}</h3>
@@ -245,15 +249,15 @@ export default function Component() {
               >
                 <h2 className="text-3xl font-bold mb-6">Publications</h2>
                 <div className="space-y-4">
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">ChemE Insights Magazine</h3>
                     <p>Our quarterly publication featuring student research, industry trends, and alumni spotlights.</p>
                   </div>
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">Technical Paper Series</h3>
                     <p>A collection of peer-reviewed papers authored by our students and faculty members.</p>
                   </div>
-                  <div className="bg-green-700 rounded-lg p-4">
+                  <div className="bg-customColor1 rounded-lg p-4">
                     <h3 className="text-xl font-semibold mb-2">ChemE Blog</h3>
                     <p>Regular updates on department news, events, and student experiences.</p>
                   </div>
@@ -270,7 +274,7 @@ export default function Component() {
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
-                <div className="bg-green-700 rounded-lg p-4">
+                <div className="bg-customColor1 rounded-lg p-4">
                   <p className="mb-2"><strong>Address:</strong> Chemical Engineering Department, IIT Roorkee, Civil Lines, Roorkee - 247667</p>
                   <p className="mb-2"><strong>Email:</strong> </p>
                   <p className="mb-2"><strong>Phone:</strong> </p>
@@ -288,7 +292,7 @@ export default function Component() {
         </div>
       </main>
 
-      <footer className="bg-green-900 text-white py-4">
+      <footer className="bg-blue-900 text-white ">
         <div className="container mx-auto px-4 text-center">
           <p>&copy; 2024 Chemical Engineering Society, IIT Roorkee. All rights reserved.</p>
           <div className="mt-2">
@@ -296,56 +300,24 @@ export default function Component() {
             <p><strong>Email:</strong> chess@iitr.ac.in</p>
             <p><strong>Phone:</strong> +91-1332-285311</p>
           </div>
-          <div className="mt-4 space-x-4">
-            <a href="#" className="hover:text-green-300">Facebook</a>
-            <a href="#" className="hover:text-green-300">Twitter</a>
-            <a href="#" className="hover:text-green-300">LinkedIn</a>
-            <a href="#" className="hover:text-green-300">Instagram</a>
-          </div>
+          <div className="mt-4 flex justify-center space-x-4">
+      <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+        <FaTwitter size={30} color="#D8CBA0" /> {/* Use your X logo here */}
+      </a>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+        <FaFacebook size={30} color="#D8CBA0" />
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <FaInstagram size={30} color="#D8CBA0" />
+      </a>
+      <a href="mailto:example@gmail.com">
+        <AiOutlineMail size={30} color="#D8CBA0" />
+      </a>
+    </div>
         </div>
       </footer>
 
-      <style jsx>{`
-        .pattern-animation {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-          overflow: hidden;
-        }
-
-        .holder {
-          position: relative;
-          width: 100%;
-          height: 100%;
-        }
-
-        .arm {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-        }
-
-        .arm:nth-child(1) { transform: rotate(0deg); }
-        .arm:nth-child(2) { transform: rotate(90deg); }
-        .arm:nth-child(3) { transform: rotate(180deg); }
-        .arm:nth-child(4) { transform: rotate(270deg); }
-
-        .a {
-          width: 10px;
-          height: 10px;
-          background: rgba(255, 255, 255, 0.1);
-          margin: 10px;
-        }
-
-        @keyframes animate {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.5); }
-          100% { transform: scale(1); }
-        }
-      `}</style>
+      
     </div>
   );
 }

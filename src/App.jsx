@@ -63,7 +63,7 @@ export default function Component() {
       <header className="sticky top-0 z-50 bg-opacity-70 bg-#09061F backdrop-filter backdrop-blur-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <img src='../public/image.png' className="h-24 w-24 object-cover rounded-full"></img>
+            <img src='./image.png' className="h-24 w-24 object-cover rounded-full"></img>
             <h1 className="mx-auto text-2xl font-bold">ChESS IIT Roorkee</h1>
             <nav className="hidden md:flex space-x-4">
               {tabs.map((tab) => (
